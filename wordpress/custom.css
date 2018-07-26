@@ -1,0 +1,82 @@
+div.f3nola_meta {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #eef8fa;
+  border-radius: 15px;
+}
+
+div.f3nola_meta table tr td {
+  padding: 5px;
+}
+
+div.f3nola_meta table tr td.label {
+  text-align: right;
+}
+
+.header-tags{
+  padding-top: 10px;
+}
+
+div.loginheader {
+  float: right;
+  padding-top:15px;
+}
+
+div.f3-photo {
+  float: left;
+  padding: 20px;
+  width: 450px;
+}
+
+div.f3-photo img {
+  width: 100%;
+}
+
+div.f3-photo span {
+  font-weight: bold;
+  font-size: 150%;
+}
+
+div.themonic-logo a img {
+}
+
+@media screen and (max-width: 1000px) {
+div.entry-content table.igsv-table {
+  width: 800px !important;
+}
+}
+
+div.entry-content div.google-table {
+  overflow: scroll;
+}
+
+@media screen and (min-width: 1000px) {
+
+div.entry-content table.igsv-table {
+  width: 100% !important;
+}
+
+div.home-with-background-image {
+  position: relative;
+}
+div.home-with-background-image img.background {
+  height: auto;
+  max-width: 100%;
+}
+
+div.home-with-background-image > div.content {
+  overflow:hidden;
+  position: absolute;
+  top: 0;
+  height: auto;
+  max-width: 100%;
+  padding: 50px;
+  color: white;
+  font-size: 150%;
+}
+
+div.home-with-background-image > div.content h1 {
+  font-size: 250%;
+  font-weight: bold;
+}
+}
