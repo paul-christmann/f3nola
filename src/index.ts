@@ -8,6 +8,7 @@ import pino from 'pino'
 import { logger } from './common/logger'
 import * as Routes from './routes'
 import * as AllRoutes from './allRoutes'
+import * as Sql from './clients/sql'
 
 const getTimeout = () => {
   return 30000 // default
@@ -62,15 +63,27 @@ const setupRoutes = () =>
     }
   })
 
-  const closeClientConnections = () => {
-    Promise.all([
-    ]).then(() => {
-      logger.info('All connections gracefully closed. Terminating.')
-      process.exit(0)
-    })
-  }
+const setupClients = () => {
+  Promise.all([
+    Sql.createClient(process.env),
+  ]).then(([sqlClient]) => {
+    app.locals = {
+      sqlClient,
+    }
+  })
+}
+
+const closeClientConnections = () => {
+  Promise.all([
+    Sql.closeClient(app.locals.sqlClient)
+  ]).then(() => {
+    logger.info('All connections gracefully closed. Terminating.')
+    process.exit(0)
+  })
+}
 
 Promise.resolve(true)
+  .then(() => setupClients())
   .then(() =>  setupRoutes())
   .then(() => app.listen(process.env.PORT || 3001))
   .tap(() =>
@@ -83,6 +96,7 @@ Promise.resolve(true)
     })
   })
   .catch((e: Error) => {
+    logger.error('Error', e)
     process.exit(1)
   })
 
