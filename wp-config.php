@@ -1,4 +1,10 @@
 <?php
+
+//Begin Really Simple SSL session cookie settings
+@ini_set('session.cookie_httponly', true);
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+//END Really Simple SSL
 /**
  * The base configuration for WordPress
  *
@@ -72,11 +78,18 @@ define( 'EMPTY_TRASH_DAYS',     7    );
 define( 'WP_AUTO_UPDATE_CORE',  true );
 define( 'WP_CRON_LOCK_TIMEOUT', 120  );
 
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', 'wp_debug_log.txt' );
+
+define( 'WP_MAX_MEMORY_LIMIT' , '512M' );
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) )
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 
-/** Sets up WordPress vars and included files. */
+  /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+require_once ABSPATH . 'f3-post-functions.php';

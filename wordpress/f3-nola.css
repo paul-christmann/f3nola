@@ -1,0 +1,15 @@
+div.f3nola_meta {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #eef8fa;
+  border-radius: 15px;
+}
+
+div.f3nola_meta table tr td {
+  padding: 5px;
+}
+
+div.f3nola_meta table tr td.label {
+  text-align: right;
+}
+
