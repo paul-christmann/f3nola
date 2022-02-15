@@ -16,6 +16,7 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "experimentalDecorators": true
   },
   "include": [
     "src/**/*"
